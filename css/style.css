@@ -1,0 +1,139 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;    
+}
+
+body{
+    background-color: black;
+    color: aliceblue;
+}
+
+/* header */
+nav{
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    height: 70px;
+    background-color: rgb(66, 35, 35);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* camera */
+.container__video{
+    display: flex;
+    top: 120px;
+    width: 100vw;
+    height: 300px;
+    position: relative;
+    justify-content: center;
+}
+
+canvas{
+    border: 1px solid #000; /* Establece un borde sólido al div */
+    box-shadow: 0 0 10px 5px #424242;
+    position: absolute;
+}
+
+/* button */
+.group__button{
+    width: 100vw;
+    background-color: rgb(30, 31, 31);
+    height: 120px;
+    bottom:0;
+    position: fixed;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.group__button button{
+    width: 60px;
+    height: 60px;
+    font-size: 20px;
+    border-radius: 50%;
+    filter: invert(100%);
+    background-color: transparent;
+}
+
+/* text */
+/* #containtText{
+    display: none;
+} */
+
+
+.text__group{
+    width: 100vw;
+    bottom: 120px;
+    position: fixed;
+    height: 60px;
+    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 10px;
+    padding: 0 10px;
+}
+
+.text{
+    font-size: 25px;
+    height: 50px;
+    grid-column-start: 3;
+    grid-column-end: span 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#inputText{
+    /* display: none; */
+    width: 150px;
+    height: 32px;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    background-color: rgb(30, 31, 31);
+    color: white !important;
+
+}
+
+.text__group button{
+    font-size: 20px;
+    background-color: transparent;
+    border: none;
+    filter: invert(100%);
+}
+/* 
+#likeButton,
+#unlikeButton{
+    display: none;
+} */
+
+/* warning */
+.movil__warning{
+    display: none;
+}
+
+@media (min-width: 540px) {
+    .text__group{
+        display: none;
+    }
+    .container__video{
+        display: none;
+    }
+    .group__button{
+        display: none;
+    }
+    .movil__warning{
+        display: flex;
+        justify-content: center;
+        top: 200px;
+        width: 100vw;
+        height: 100px;
+        position: fixed;
+    }
+}
