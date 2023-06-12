@@ -39,7 +39,12 @@
     </div>
     <script src="js/camera.js"></script>
     <script>
-        const modelURL = 'model_recognition/model.json'; 
+        (async() => {
+         console.log("Cargando modelo...");
+         const modelURL = 'model_recognition/model.json'; 
+         console.log("Modelo cargado");
+        })();
+        
         async function load_model(img){
             const model = await tf.loadLayersModel(modelURL);
             const imageTensor = tf.browser.fromPixels(img,1).expandDims();;
