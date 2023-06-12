@@ -11,19 +11,25 @@
     <script>
         var model = null;
         (async() => {
-          model = await tf.loadLayersModel("model.json");
+          model = await tf.loadLayersModel("model_recognition/model.json");
         })();
     </script>
 </head>
 <body>
     <nav>
         <h1>Human Face Recognition</h1>
+        <a href="https://github.com/AlexRodriguezVillavicencio/human_faces_recognition"><i style="margin-top:10px;font-size: 25px; color:aliceblue" class="fa-brands fa-github"></i></a>
     </nav>
     <div class="container__video">
         <canvas id="canvas"></canvas>
     </div>
 
     <div id="containtText">
+        <div class="text__group">
+            <div class="text">
+                <div id="insertText"></div>
+            </div>
+        </div>
     </div>
 
     <div class="group__button" >
@@ -38,10 +44,6 @@
         <button id="snap" >
             <i class="fa-solid fa-wand-magic-sparkles"></i>
         </button>
-    </div>
-    <!-- warning -->
-    <div class="movil__warning">
-        <h2>Disponible solo para moviles</h2>
     </div>
     <script src="js/camera.js"></script>
     <script src="js/main.js"></script>
