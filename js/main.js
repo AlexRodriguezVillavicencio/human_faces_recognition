@@ -1,33 +1,25 @@
-  
-const containtText = document.getElementById("containtText");
-let parsedText;
+const insertText = document.getElementById("insertText");
+let isActive = false;
 
-async function load_model(img){
-    button_detection.disabled = true;
-    const imageTensor = tf.browser.fromPixels(img,1).expandDims();;
+async function load_model(){
+  if (isActive) {
+    const imageData = context.getImageData(0, 0, 300,300);
+    const imageTensor = tf.browser.fromPixels(imageData,1).expandDims();;
     const prediction = model.predict(imageTensor);
     const predictionArray = await prediction.array();
     tf.dispose([imageTensor, prediction]);
-    model.dispose();
-    return predictionArray
+    if (predictionArray >= 0.5){
+      insertText.innerHTML = `Human:  ${parseFloat(predictionArray).toFixed(2)*100}%`;
+    }else {
+      insertText.innerHTML = `Non Human: ${parseFloat(predictionArray).toFixed(2)*100}%`;
+    }
+
+    setTimeout(load_model, 150); 
+  }
 }
 
-button_detection.addEventListener("click", async function() {
-  var htmlContent = `
-  <div class="text__group">
-  <div class="text">
-      <div id="insertText"></div>
-  </div>
-  </div>
-    `;
-  containtText.innerHTML = htmlContent
-  const insertText = document.getElementById("insertText");
-    const imageData = context.getImageData(0, 0, 300,300);
-    const namePre = await load_model(imageData)
-    button_detection.disabled = false;
-    if (namePre >= 0.5){
-      insertText.innerHTML = `Human:  ${parseFloat(namePre).toFixed(3)*100}%`;
-    }else {
-      insertText.innerHTML = `No Human: ${parseFloat(namePre).toFixed(3)*100}%`;
-    }
+button_detection.addEventListener("click", function() {
+  button_detection.disabled = true;
+  isActive = true;
+  load_model()
 });

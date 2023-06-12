@@ -60,6 +60,7 @@ function startWebcam() {
 }
 
 function stopWebcam() {
+  isActive = false;
   cancelAnimationFrame(animationId);
   stopButton.style.display = "none";
   initButton.style.display = "block";
