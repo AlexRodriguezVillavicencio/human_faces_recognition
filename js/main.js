@@ -11,7 +11,7 @@ button_detection.addEventListener("click", async function() {
   </div>
     `;
   containtText.innerHTML = htmlContent
-  
+  console.log('---')
   const insertText = document.getElementById("insertText");
     const imageData = context.getImageData(0, 0, 300,300);
     const namePre = await load_model(imageData)
