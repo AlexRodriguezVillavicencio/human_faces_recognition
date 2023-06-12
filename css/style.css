@@ -14,8 +14,8 @@ nav{
     position: fixed;
     top: 0;
     width: 100vw;
-    height: 70px;
-    background-color: rgb(66, 35, 35);
+    height: 100px;
+    background-color: rgb(30, 31, 31);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -33,7 +33,7 @@ nav{
 }
 
 canvas{
-    border: 1px solid #000; /* Establece un borde sólido al div */
+    border: 1px solid #000;
     box-shadow: 0 0 10px 5px #424242;
     position: absolute;
 }
@@ -60,12 +60,6 @@ canvas{
     background-color: transparent;
 }
 
-/* text */
-/* #containtText{
-    display: none;
-} */
-
-
 .text__group{
     width: 100vw;
     bottom: 120px;
@@ -89,7 +83,6 @@ canvas{
 }
 
 #inputText{
-    /* display: none; */
     width: 150px;
     height: 32px;
     font-size: 20px;
@@ -98,7 +91,6 @@ canvas{
     border-radius: 5px;
     background-color: rgb(30, 31, 31);
     color: white !important;
-
 }
 
 .text__group button{
@@ -106,34 +98,4 @@ canvas{
     background-color: transparent;
     border: none;
     filter: invert(100%);
-}
-/* 
-#likeButton,
-#unlikeButton{
-    display: none;
-} */
-
-/* warning */
-.movil__warning{
-    display: none;
-}
-
-@media (min-width: 540px) {
-    .text__group{
-        display: none;
-    }
-    .container__video{
-        display: none;
-    }
-    .group__button{
-        display: none;
-    }
-    .movil__warning{
-        display: flex;
-        justify-content: center;
-        top: 200px;
-        width: 100vw;
-        height: 100px;
-        position: fixed;
-    }
 }
