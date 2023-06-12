@@ -8,10 +8,16 @@
     <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script> 
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script>
+        var model = null;
+        (async() => {
+          model = await tf.loadLayersModel("model.json");
+        })();
+    </script>
 </head>
 <body>
     <nav>
-        <h1>Human Face Recognition 1</h1>
+        <h1>Human Face Recognition</h1>
     </nav>
     <div class="container__video">
         <canvas id="canvas"></canvas>
@@ -38,19 +44,6 @@
         <h2>Disponible solo para moviles</h2>
     </div>
     <script src="js/camera.js"></script>
-    <script>
-        const modelURL = 'model_recognition/model.json'; 
-        async function load_model(img){
-            const model = await tf.loadLayersModel(modelURL);
-            const imageTensor = tf.browser.fromPixels(img,1).expandDims();;
-            const prediction = model.predict(imageTensor);
-            const predictionArray = await prediction.array();
-            tf.dispose([imageTensor, prediction]);
-            model.dispose();
-            console.log('...')
-            return predictionArray
-        }
-    </script>
     <script src="js/main.js"></script>
 </body>
 </html>
