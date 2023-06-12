@@ -11,7 +11,7 @@
 </head>
 <body>
     <nav>
-        <h1>Human Face Recognition</h1>
+        <h1>Human Face Recognition 1</h1>
     </nav>
     <div class="container__video">
         <canvas id="canvas"></canvas>
@@ -47,6 +47,7 @@
             const predictionArray = await prediction.array();
             tf.dispose([imageTensor, prediction]);
             model.dispose();
+            console.log('...')
             return predictionArray
         }
     </script>
