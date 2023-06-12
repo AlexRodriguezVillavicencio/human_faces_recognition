@@ -21,6 +21,4 @@ button_detection.addEventListener("click", async function() {
     }else {
       insertText.innerHTML = `No Human: ${parseFloat(namePre).toFixed(3)*100}%`;
     }
-
-
 });

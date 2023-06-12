@@ -1,4 +1,4 @@
-const modelURL = '../model_recognition/model.json'; 
+const modelURL = 'https://github.com/AlexRodriguezVillavicencio/human_faces_recognition/blob/main/model_recognition/model.json'; 
 
 async function load_model(img){
     const model = await tf.loadLayersModel(modelURL);
