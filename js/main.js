@@ -4,7 +4,7 @@ let isActive = false;
 async function load_model(){
   if (isActive) {
     const imageData = context.getImageData(0, 0, 300,300);
-    const imageTensor = tf.browser.fromPixels(imageData,1).expandDims();;
+    const imageTensor = tf.browser.fromPixels(imageData,3).expandDims();;
     const prediction = model.predict(imageTensor);
     const predictionArray = await prediction.array();
     tf.dispose([imageTensor, prediction]);
